@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @cart.total %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @cart.balance %>
+</p>
+
+<p>
+  <strong>Itemtotal:</strong>
+  <%= @cart.itemtotal %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @cart.customer_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @cart.product_id %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @cart.service_id %>
+</p>
+
+<p>
+  <strong>Pst:</strong>
+  <%= @cart.pst %>
+</p>
+
+<p>
+  <strong>Gst:</strong>
+  <%= @cart.gst %>
+</p>
+
+<p>
+  <strong>Hst:</strong>
+  <%= @cart.hst %>
+</p>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

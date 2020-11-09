@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @service.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @service.price %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @service.discount %>
+</p>
+
+<p>
+  <strong>Discount amount:</strong>
+  <%= @service.discount_amount %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @service.length %>
+</p>
+
+<p>
+  <strong>Cart:</strong>
+  <%= @service.cart_id %>
+</p>
+
+<p>
+  <strong>Staff:</strong>
+  <%= @service.staff_id %>
+</p>
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>

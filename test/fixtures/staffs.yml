@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  apptdate: 2020-11-09
+  rate: 9.99
+  fname: MyString
+  lname: MyString
+  address: MyString
+  city: MyString
+  postal: MyString
+  phone: MyString
+  service_id: 1
+  customer_id: 1
+
+two:
+  title: MyString
+  apptdate: 2020-11-09
+  rate: 9.99
+  fname: MyString
+  lname: MyString
+  address: MyString
+  city: MyString
+  postal: MyString
+  phone: MyString
+  service_id: 1
+  customer_id: 1
