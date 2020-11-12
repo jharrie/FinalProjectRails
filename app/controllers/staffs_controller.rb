@@ -1,5 +1,5 @@
 class StaffsController < ApplicationController
-  before_action :set_staff, only: [:show, :edit, :update, :destroy]
+  before_action :set_staff, only: %i[show edit update destroy]
 
   # GET /staffs
   # GET /staffs.json
@@ -9,17 +9,7 @@ class StaffsController < ApplicationController
 
   # GET /staffs/1
   # GET /staffs/1.json
-  def show
-  end
-
-  # GET /staffs/new
-  def new
-    @staff = Staff.new
-  end
-
-  # GET /staffs/1/edit
-  def edit
-  end
+  def show; end
 
   # POST /staffs
   # POST /staffs.json
@@ -28,7 +18,7 @@ class StaffsController < ApplicationController
 
     respond_to do |format|
       if @staff.save
-        format.html { redirect_to @staff, notice: 'Staff was successfully created.' }
+        format.html { redirect_to @staff, notice: "Staff was successfully created." }
         format.json { render :show, status: :created, location: @staff }
       else
         format.html { render :new }
@@ -42,7 +32,7 @@ class StaffsController < ApplicationController
   def update
     respond_to do |format|
       if @staff.update(staff_params)
-        format.html { redirect_to @staff, notice: 'Staff was successfully updated.' }
+        format.html { redirect_to @staff, notice: "Staff was successfully updated." }
         format.json { render :show, status: :ok, location: @staff }
       else
         format.html { render :edit }
@@ -56,19 +46,20 @@ class StaffsController < ApplicationController
   def destroy
     @staff.destroy
     respond_to do |format|
-      format.html { redirect_to staffs_url, notice: 'Staff was successfully destroyed.' }
+      format.html { redirect_to staffs_url, notice: "Staff was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_staff
-      @staff = Staff.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def staff_params
-      params.require(:staff).permit(:title, :apptdate, :rate, :fname, :lname, :address, :city, :postal, :phone, :service_id, :customer_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_staff
+    @staff = Staff.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def staff_params
+    params.require(:staff).permit(:title, :apptdate, :rate, :fname, :lname, :address, :city, :postal, :phone, :service_id, :customer_id)
+  end
 end
