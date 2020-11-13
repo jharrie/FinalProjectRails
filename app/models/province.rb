@@ -1,3 +1,3 @@
 class Province < ApplicationRecord
-  has_many :cart
+  has_many :carts
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_234239) do
+ActiveRecord::Schema.define(version: 2020_11_13_173546) do
 
   create_table "abouts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -79,6 +79,15 @@ ActiveRecord::Schema.define(version: 2020_11_12_234239) do
     t.integer "province_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "product_id"
+    t.integer "service_id"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "fname"
     t.string "lname"
@@ -88,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_234239) do
     t.string "postal"
     t.string "login"
     t.string "pass"
-    t.string "staff_id"
+    t.integer "staff_id"
     t.date "apptdate"
     t.string "healthid"
     t.integer "cart_id"
@@ -106,6 +115,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_234239) do
     t.integer "cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -129,6 +139,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_234239) do
     t.integer "staff_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
   end
 
   create_table "staffs", force: :cascade do |t|
@@ -152,10 +163,16 @@ ActiveRecord::Schema.define(version: 2020_11_12_234239) do
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "provinces"
   add_foreign_key "carts", "services"
+  add_foreign_key "categories", "products"
+  add_foreign_key "categories", "services"
   add_foreign_key "customers", "carts"
   add_foreign_key "customers", "staffs"
   add_foreign_key "products", "carts"
+  add_foreign_key "products", "categories"
   add_foreign_key "provinces", "carts"
   add_foreign_key "services", "carts"
+  add_foreign_key "services", "categories"
   add_foreign_key "services", "staffs"
+  add_foreign_key "staffs", "customers"
+  add_foreign_key "staffs", "services"
 end
