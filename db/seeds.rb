@@ -10,13 +10,19 @@ Staff.delete_all
 AdminUser.delete_all
 Province.delete_all
 Product.delete_all
+Category.delete_all
 
 if Rails.env.development?
   AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password")
 end
 
 NUMBER_OF_STAFF = 10
+NUMBER_OF_CATEGORIES = 4
 NUMBER_OF_PRODUCTS = 100
+
+NUMBER_OF_CATEGORIES.times do
+  Category.create
+end
 
 NUMBER_OF_PRODUCTS.times do
   product = Product.create(
