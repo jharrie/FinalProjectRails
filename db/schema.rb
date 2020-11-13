@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_200749) do
+ActiveRecord::Schema.define(version: 2020_11_12_234239) do
 
   create_table "abouts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_200749) do
     t.decimal "hst"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "province_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -147,6 +148,14 @@ ActiveRecord::Schema.define(version: 2020_11_12_200749) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "carts", "customers"
+  add_foreign_key "carts", "products"
+  add_foreign_key "carts", "provinces"
+  add_foreign_key "carts", "services"
   add_foreign_key "customers", "carts"
   add_foreign_key "customers", "staffs"
+  add_foreign_key "products", "carts"
+  add_foreign_key "provinces", "carts"
+  add_foreign_key "services", "carts"
+  add_foreign_key "services", "staffs"
 end
