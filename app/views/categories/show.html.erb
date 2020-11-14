@@ -2,7 +2,19 @@
 
 <p>
   <strong>Name:</strong>
-  <%= render @category %>
+  <%= @category.name %>
+
+  <%= render @products %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @category.product_id %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @category.service_id %>
 </p>
 
 <p>
