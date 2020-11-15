@@ -1,1 +1,5 @@
-<p><%= staff.name %></p>
+<p><%= staff.fname %></p>
+
+<% if staff.image.present? %>
+  <%= image_tag staff.image %>
+<% end %>
