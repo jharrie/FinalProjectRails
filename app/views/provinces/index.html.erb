@@ -25,13 +25,6 @@
         <td><%= province.hst %></td>
         <td><%= province.cart_id %></td>
         <td><%= link_to 'Show', province %></td>
-        <td><%= link_to 'Edit', edit_province_path(province) %></td>
-        <td><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Province', new_province_path %>
