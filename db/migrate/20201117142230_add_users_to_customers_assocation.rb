@@ -1,5 +1,4 @@
 class AddUsersToCustomersAssocation < ActiveRecord::Migration[6.0]
-  # TODO: ADD ASSOCIATIONS FROM USER TO CUSTOMER
   def change
     add_column :users, :staff_id, :integer
     add_column :users, :customer_id, :integer
