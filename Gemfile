@@ -30,9 +30,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem "bulma-rails", "~> 0.9.0"
 
-# gem 'will_paginate'
+gem 'will_paginate'
 
-# gem 'ransack'
+gem 'ransack'
 
 gem 'faker'
 

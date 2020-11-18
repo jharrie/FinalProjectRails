@@ -1,43 +1,18 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Staffs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Apptdate</th>
-      <th>Rate</th>
-      <th>Fname</th>
-      <th>Lname</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Postal</th>
-      <th>Phone</th>
-      <th>Service</th>
-      <th>Customer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @staffs.each do |staff| %>
-      <tr>
-        <td><%= staff.title %></td>
-        <td><%= staff.apptdate %></td>
-        <td><%= staff.rate %></td>
-        <td><%= staff.fname %></td>
-        <td><%= staff.lname %></td>
-        <td><%= staff.address %></td>
-        <td><%= staff.city %></td>
-        <td><%= staff.postal %></td>
-        <td><%= staff.phone %></td>
-        <td><%= staff.service_id %></td>
-        <td><%= staff.customer_id %></td>
-        <td><%= link_to 'Show', staff %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+  <% @staffs.each do |staff| %>
+      <div class="card">
+        <p class="title">
+          <%= link_to staff.fname, staff %>
+        </p>
+          <p class="subtitle">
+            <%= staff.title %>
+          </p>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span>
+              Phone: <%= staff.phone %>
+            </span>
+          </p>
+        </footer>
+      </div>
+  <% end %>

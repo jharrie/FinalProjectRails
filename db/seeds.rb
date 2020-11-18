@@ -33,6 +33,7 @@ NUMBER_OF_PRODUCTS.times do
     name:        Faker::Color.color_name,
     price:       rand(10..100),
     discount:    Faker::Boolean.boolean,
+    description: Faker::Lorem.unique.words,
     category_id: rand(1...5),
     stock:       rand(0..40)
   )

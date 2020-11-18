@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_192200) do
+ActiveRecord::Schema.define(version: 2020_11_18_162130) do
 
   create_table "abouts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_192200) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
+    t.text "description"
   end
 
   create_table "provinces", force: :cascade do |t|
