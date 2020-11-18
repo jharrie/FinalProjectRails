@@ -32,8 +32,8 @@ NUMBER_OF_PRODUCTS.times do
   Product.create(
     name:        Faker::Color.color_name,
     price:       rand(10..100),
-    discount:    "false",
-    category_id: rand(1...4),
+    discount:    Faker::Boolean.boolean,
+    category_id: rand(1...5),
     stock:       rand(0..40)
   )
 end
@@ -64,6 +64,12 @@ NUMBER_OF_STAFF.times do
     title:   Faker::Job.title
   )
 end
+
+About.create(
+  title:   "Welcome to my website about final projects.",
+  subtext: "There is literally nothing here.",
+  body:    "And this is where the body would go!"
+)
 
 Province.create(
   name: "British Columbia",

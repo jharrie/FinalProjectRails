@@ -10,11 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_142230) do
+ActiveRecord::Schema.define(version: 2020_11_17_192200) do
 
   create_table "abouts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "title"
+    t.text "subtext"
+    t.text "body"
   end
 
   create_table "active_admin_comments", force: :cascade do |t|

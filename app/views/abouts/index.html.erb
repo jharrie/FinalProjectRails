@@ -12,7 +12,9 @@
   <tbody>
     <% @abouts.each do |about| %>
       <tr>
-        <td><%= link_to 'Show', about %></td>
+        <td><%= about.title %></td>
+        <td><%= about.subtext %></td>
+        <td><%= about.body %></td>
     <% end %>
   </tbody>
 </table>

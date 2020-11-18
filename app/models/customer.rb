@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  has_one :staff, through: :users
+  has_one :staff
   has_one :cart
   has_one :user
 
