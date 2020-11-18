@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
 
+  # TODO: NEED TO ADD RANSACK AND PAGINATION.
   # GET /products
   # GET /products.json
   def index
