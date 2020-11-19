@@ -2,7 +2,10 @@
   "name": "finalproject",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@activeadmin/activeadmin": "^2.8.1",
+=======
+>>>>>>> 0d048ff67673212757ad9b0a3b2da3770940ae21
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
