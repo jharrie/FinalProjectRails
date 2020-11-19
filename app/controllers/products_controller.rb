@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @search = Product.ransack(params[:q])
-    @products = @search.result.page(params[:page])
+    @products = @search.result.includes(:category).page params[:page]
     @search.build_condition
   end
 

@@ -22,11 +22,11 @@
       </div>
   <% end %>
 
-  <%= search_form_for @search do |f| %>
+<%= search_form_for @search do |f| %>
   <%= f.condition_fields do |c| %>
     <div class="field">
       <%= c.attribute_fields do |a| %>
-        <%= a.attribute_select%>
+        <%= a.attribute_select associations: [:categories] %>
       <% end %>
       <%= c.predicate_select %>
       <%= c.value_fields do |v| %>
