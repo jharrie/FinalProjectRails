@@ -1,10 +1,4 @@
-# # This file should contain all the record creation needed to seed the database with its default values.
-# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-# #
-# # Examples:
-# #
-# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-# #   Character.create(name: 'Luke', movie: movies.first)
+require "uri"
 
 Staff.delete_all
 AdminUser.delete_all
@@ -29,11 +23,11 @@ NUMBER_OF_CATEGORIES.times do
 end
 
 NUMBER_OF_PRODUCTS.times do
-  Product.create(
+  product = Product.create(
     name:        Faker::Color.color_name,
-    price:       rand(10..100),
+    price_cents: rand(10..100),
     discount:    Faker::Boolean.boolean,
-    description: Faker::Lorem.unique.words,
+    description: Faker::Hipster.sentence(word_count: rand(4..10)),
     category_id: rand(1...5),
     stock:       rand(0..40)
   )
@@ -75,85 +69,85 @@ About.create(
 Province.create(
   name: "British Columbia",
   code: "1",
-  pst:  "7",
-  gst:  "5"
+  pst:  7,
+  gst:  5
 )
 
 Province.create(
   name: "Alberta",
   code: "2",
-  pst:  "0",
-  gst:  "5"
+  pst:  0,
+  gst:  5
 )
 
 Province.create(
   name: "Saskatchewan",
   code: "3",
-  pst:  "6",
-  gst:  "5"
+  pst:  6,
+  gst:  5
 )
 
 Province.create(
   name: "Manitoba",
   code: "4",
-  pst:  "7",
-  gst:  "5"
+  pst:  7,
+  gst:  5
 )
 
 Province.create(
   name: "Ontario",
   code: "5",
-  hst:  "13"
+  hst:  13
 )
 
 Province.create(
   name: "Quebec",
   code: "6",
-  pst:  "9.975",
-  gst:  "5"
+  pst:  9.975,
+  gst:  5
 )
 
 Province.create(
   name: "Nova Scotia",
-  code: "7",
-  hst:  "15"
+  code: 7,
+  hst:  15
 )
 
 Province.create(
   name: "New Brunswick",
-  code: "8",
-  hst:  "15"
+  code: 8,
+  hst:  15
 )
 
 Province.create(
   name: "Prince Edward Island",
-  code: "9",
-  hst:  "15"
+  code: 9,
+  hst:  15
 )
 
 Province.create(
   name: "Newfoundland and Labrador",
-  code: "10",
-  hst:  "15"
+  code: 10,
+  hst:  15
 )
 
 Province.create(
   name: "Yukon",
   code: "11",
-  pst:  "0",
-  gst:  "5"
+  pst:  0,
+  gst:  5
 )
 
 Province.create(
   name: "Northwest Territories",
   code: "12",
-  pst:  "0",
-  gst:  "5"
+  pst:  0,
+  gst:  5
 )
 
 Province.create(
   name: "Nunavut",
   code: "13",
-  pst:  "0",
-  gst:  "5"
+  pst:  0,
+  gst:  5
 )

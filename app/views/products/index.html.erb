@@ -1,3 +1,4 @@
+<p>Visits: <%= pluralize @visit_count, 'time' %>.</p>
 <p id="notice"><%= notice %></p>
   <% @products.each do |product| %>
       <div class="card">
@@ -5,7 +6,7 @@
           <%= link_to product.name, product %>
         </p>
           <p class="subtitle">
-            $<%= product.price %>
+            <%= number_to_currency product.price_cents / 100.0 %>
           </p>
         <footer class="card-footer">
           <p class="card-footer-item">
@@ -37,4 +38,4 @@
   <div class ="actions"><%= f.submit "Search" %></div>
 <% end %>
 
-<%= will_paginate @products %>
+<%= paginate @products %>

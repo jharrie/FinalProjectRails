@@ -30,7 +30,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem "bulma-rails", "~> 0.9.0"
 
-gem 'will_paginate'
+gem 'kaminari'
+
+gem 'image_processing'
 
 gem 'ransack'
 
