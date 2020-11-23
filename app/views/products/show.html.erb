@@ -1,39 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
   <%= render @product %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= render @product.category %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency product.price_cents / 100.0 %>
-</p>
-
-<p>
-  <strong>Discount:</strong>
-  <%= @product.discount %>
-</p>
-
-<p>
-  <strong>Discount amount:</strong>
-  <%= @product.discount_amount %>
-</p>
-
-<p>
-  <strong>Stock:</strong>
-  <%= @product.stock %>
-</p>
-
-<p>
-  <strong>Cart:</strong>
-  <%= @product.cart_id %>
-</p>
-
 <%= link_to 'Back', products_path %>
 

@@ -5,8 +5,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @visit_count = 0
-
     @search = Product.ransack(params[:q])
     @products = @search.result.includes(:category).page params[:page]
     @search.build_condition

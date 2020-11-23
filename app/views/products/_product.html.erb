@@ -1,5 +1,27 @@
-<p><%= product.name %></p>
 
-<% if product.image.present? %>
-  <%= image_tag product.image %>
-<% end %>
+      <div class="card">
+        <% if product.image.present? %>
+          <figure class="image is-128x128"> <%= image_tag product.image %> </figure>
+        <% end %>
+        <p class="title">
+          <%= link_to product.name, product %>
+        </p>
+          <p class="subtitle">
+            <%= number_to_currency product.price_cents / 100.0 %>
+          </p>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span>
+              Stock: <%= product.stock %>
+            </span>
+          </p>
+          <p class="card-footer-item">
+            <span>
+              <%= form_with url: cart_index_path do %>
+                <%= hidden_field_tag(:id, product.id) %>
+                <%= button_tag 'Add to Cart'%>
+              <% end %>
+            </span>
+          </p>
+        </footer>
+      </div>

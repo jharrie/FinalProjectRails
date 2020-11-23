@@ -1,27 +1,4 @@
-<p>Visits: <%= pluralize @visit_count, 'time' %>.</p>
-<p id="notice"><%= notice %></p>
-  <% @products.each do |product| %>
-      <div class="card">
-        <p class="title">
-          <%= link_to product.name, product %>
-        </p>
-          <p class="subtitle">
-            <%= number_to_currency product.price_cents / 100.0 %>
-          </p>
-        <footer class="card-footer">
-          <p class="card-footer-item">
-            <span>
-              Stock: <%= product.stock %>
-            </span>
-          </p>
-          <p class="card-footer-item">
-            <span>
-              <%= product.description %>
-            </span>
-          </p>
-        </footer>
-      </div>
-  <% end %>
+<%= render @products %>
 
 <%= search_form_for @search do |f| %>
   <%= f.condition_fields do |c| %>

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :cart, only: %i[create destroy]
   devise_for :users
   resources :categories
-  get 'welcome/index'
+  get "welcome/index"
   root "welcome#index"
   resources :abouts
   devise_for :admin_users, ActiveAdmin::Devise.config
