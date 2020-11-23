@@ -62,6 +62,9 @@
     </nav>
     <section class="section">
         <div class="container">
+            <% if flash[:notice] %>
+                <p><%= flash[:notice] %></p>
+            <% end %>
             <%# Devise info %>
             <% if notice %>
                 <p class="alert alert-success"><%= notice %></p>

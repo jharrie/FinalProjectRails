@@ -31,6 +31,10 @@ NUMBER_OF_PRODUCTS.times do
     category_id: rand(1...5),
     stock:       rand(0..40)
   )
+
+  query = URI.encode_www_form_component(product.name)
+  downloaded_image = URI.open("https://source.unsplash.com/600x600/?#{query}")
+  product.image.attach(io: downloaded_image, filename: "m-#{product.upc}.jpg")
 end
 
 NUMBER_OF_CUSTOMERS.times do
