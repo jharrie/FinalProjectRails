@@ -6,6 +6,7 @@ Province.delete_all
 Product.delete_all
 Category.delete_all
 About.delete_all
+User.delete_all
 
 if Rails.env.development?
   AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password")
@@ -14,7 +15,7 @@ end
 NUMBER_OF_STAFF = 10
 NUMBER_OF_CATEGORIES = 4
 NUMBER_OF_PRODUCTS = 100
-NUMBER_OF_CUSTOMERS = 100
+NUMBER_OF_CUSTOMERS = 10
 
 NUMBER_OF_CATEGORIES.times do
   Category.create(
@@ -24,7 +25,7 @@ NUMBER_OF_CATEGORIES.times do
 end
 
 NUMBER_OF_PRODUCTS.times do
-  product = Product.create(
+  Product.create(
     name:        Faker::Color.color_name,
     price_cents: rand(10..100),
     discount:    Faker::Boolean.boolean,
@@ -33,23 +34,9 @@ NUMBER_OF_PRODUCTS.times do
     stock:       rand(0..40)
   )
 
-  query = URI.encode_www_form_component(product.name)
-  downloaded_image = URI.open("https://source.unsplash.com/600x600/?#{query}")
-  product.image.attach(io: downloaded_image, filename: "m-#{product.upc}.jpg")
-end
-
-NUMBER_OF_CUSTOMERS.times do
-  Customer.create(
-    fname:    Faker::Name.first_name,
-    lname:    Faker::Name.last_name,
-    addr:     Faker::Address.street_address,
-    prov:     "MB",
-    healthid: rand(2222..9999),
-    city:     Faker::Address.city,
-    postal:   Faker::Address.postcode,
-    phone:    Faker::PhoneNumber.phone_number,
-    login:    Faker::Lorem.unique.words
-  )
+  # query = URI.encode_www_form_component(product.name)
+  # downloaded_image = URI.open("https://source.unsplash.com/600x600/?#{query}")
+  # product.image.attach(io: downloaded_image, filename: "m-#{product.upc}.jpg")
 end
 
 NUMBER_OF_STAFF.times do
@@ -73,86 +60,86 @@ About.create(
 
 Province.create(
   name: "British Columbia",
-  code: "1",
+  code: "BC",
   pst:  7,
   gst:  5
 )
 
 Province.create(
   name: "Alberta",
-  code: "2",
+  code: "AB",
   pst:  0,
   gst:  5
 )
 
 Province.create(
   name: "Saskatchewan",
-  code: "3",
+  code: "SK",
   pst:  6,
   gst:  5
 )
 
 Province.create(
   name: "Manitoba",
-  code: "4",
+  code: "MB",
   pst:  7,
   gst:  5
 )
 
 Province.create(
   name: "Ontario",
-  code: "5",
+  code: "ON",
   hst:  13
 )
 
 Province.create(
   name: "Quebec",
-  code: "6",
+  code: "QC",
   pst:  9.975,
   gst:  5
 )
 
 Province.create(
   name: "Nova Scotia",
-  code: 7,
+  code: "NS",
   hst:  15
 )
 
 Province.create(
   name: "New Brunswick",
-  code: 8,
+  code: "NB",
   hst:  15
 )
 
 Province.create(
   name: "Prince Edward Island",
-  code: 9,
+  code: "PE",
   hst:  15
 )
 
 Province.create(
   name: "Newfoundland and Labrador",
-  code: 10,
+  code: "NF",
   hst:  15
 )
 
 Province.create(
   name: "Yukon",
-  code: "11",
+  code: "YK",
   pst:  0,
   gst:  5
 )
 
 Province.create(
   name: "Northwest Territories",
-  code: "12",
+  code: "NW",
   pst:  0,
   gst:  5
 )
 
 Province.create(
   name: "Nunavut",
-  code: "13",
+  code: "NV",
   pst:  0,
   gst:  5
 )

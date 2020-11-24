@@ -1,7 +1,7 @@
 
       <div class="card">
         <% if product.image.present? %>
-          <figure class="image is-128x128"> <%= image_tag product.image %> </figure>
+          <figure class="image is-64x64"> <%= image_tag product.image %> </figure>
         <% end %>
         <p class="title">
           <%= link_to product.name, product %>
