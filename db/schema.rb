@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_170744) do
+ActiveRecord::Schema.define(version: 2020_11_24_173343) do
 
   create_table "abouts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_170744) do
     t.string "last_name"
     t.string "address"
     t.string "city"
-    t.string "province"
+    t.string "province_id"
     t.string "postal"
     t.string "health_id"
     t.string "phone"
@@ -208,5 +208,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_170744) do
   add_foreign_key "staffs", "services"
   add_foreign_key "staffs", "users"
   add_foreign_key "users", "customers"
+  add_foreign_key "users", "provinces"
   add_foreign_key "users", "staffs"
 end

@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_one :staff
   has_one :cart
+  has_one :province
 end
