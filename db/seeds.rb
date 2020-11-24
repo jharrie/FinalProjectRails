@@ -5,6 +5,7 @@ AdminUser.delete_all
 Province.delete_all
 Product.delete_all
 Category.delete_all
+About.delete_all
 
 if Rails.env.development?
   AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password")

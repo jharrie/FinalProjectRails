@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :first_name, :last_name, :address, :city, :province, :postal, presence: true
+
   has_one :staff
-  has_one :customer
+  has_one :cart
 end
