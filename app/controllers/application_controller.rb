@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     # return a collection product objects based on the product_id in the cart
     Product.find(session[:shopping_cart])
   end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name address city postal])
+  end
 end
