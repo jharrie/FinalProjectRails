@@ -20,7 +20,6 @@
     <!-- Bulma Version 0.9.0-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
-    <%= debug session[:shopping_cart] %>
 </head>
 
 <body>
@@ -53,7 +52,13 @@
                 <div class="navbar-item">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" placeholder="Search . . .">
+                            <%= link_to image_tag("cart.png", width: 40), products_url %>
+                            <% if cart.present? %>
+                                <sup><%= cart.size %></sup>
+                                    <% cart.each do |product| %>
+                                        <li><%= product.price_cents %> <%= link_to '❌', cart_path(product), method: :delete %></li>
+                                    <% end %>
+                            <% end %>
                         </div>
                     </div>
                 </div>
@@ -64,13 +69,6 @@
         <div class="container">
             <% if flash[:notice] %>
                 <p><%= flash[:notice] %></p>
-            <% end %>
-            <%# Devise info %>
-            <% if notice %>
-                <p class="alert alert-success"><%= notice %></p>
-            <% end %>
-            <% if alert %>
-                <p class="alert alert-danger"><%= alert %></p>
             <% end %>
             <%= yield %>
         </div>
