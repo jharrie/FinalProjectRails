@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   private
 
   def init_session
-    session[:shopping_cart] ||= [] # Shopping cart array array of product_ids
+    session[:shopping_cart] ||= []
+    session[:cart_quantity] ||= []
   end
 
   def cart
