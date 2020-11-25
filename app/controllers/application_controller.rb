@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
     session[:shopping_cart] ||= []
     session[:cart_quantity] ||= []
 
-    @users = User.all
-    @provinces = Province.all
+    @users_cart = User.all
+    @provinces_cart = Province.all
   end
 
   def cart
@@ -25,6 +25,6 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name address city postal])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name address city postal province_id])
   end
 end

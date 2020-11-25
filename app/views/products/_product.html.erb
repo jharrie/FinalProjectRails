@@ -1,4 +1,3 @@
-
       <div class="card">
         <% if product.image.present? %>
           <figure class="image is-64x64"> <%= image_tag product.image %> </figure>
@@ -21,11 +20,10 @@
                 <%= button_to cart_path(product), method: :delete do %>
                 Remove from cart
                 <% end %>
-              <% else %>
-                <%= form_with url: cart_index_path do %>
-                  <%= hidden_field_tag(:id, product.id) %>
-                  <%= button_tag 'Add to Cart'%>
-                <% end %>
+              <% end %>
+              <%= form_with url: cart_index_path do %>
+                <%= hidden_field_tag(:id, product.id) %>
+                <%= button_tag 'Add to Cart'%>
               <% end %>
             </span>
           </p>

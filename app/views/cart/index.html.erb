@@ -3,6 +3,9 @@
 
 <h1>Cart</h1>
 
+<%= current_user['id'] %>
+<% user_province = Province.find_by id: current_user.province_id %>
+
 <% session[:shopping_cart].each do |item| %>
   <% current_product = product_list.find_by id: item %>
   <% product_quantity = 0 %>

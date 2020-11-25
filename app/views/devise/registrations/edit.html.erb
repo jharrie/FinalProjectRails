@@ -31,13 +31,39 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+<div class="field">
+    <%= f.label :first_name, "First Name" %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "Address" %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city, "City" %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal, "Postal Code" %><br />
+    <%= f.text_field :postal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :province_id, "Province" %><br />
+    <%= f.select :province_id, Province.pluck(:name, :id)%>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
