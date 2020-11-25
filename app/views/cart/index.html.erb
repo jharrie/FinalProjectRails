@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<% product_list = Product.all %>
+
+<h1>Cart</h1>
+
+<% session[:shopping_cart].each do |item| %>
+  <% current_product = product_list.find_by id: item %>
+  <% product_quantity = 0 %>
+  <% session[:cart_quantity].map do |cart_item| %>
+    <% cart_item['id'].to_i == item.to_i ? item_quantity = cart_item['quantity'].to_i : cart_item %>
+  <% end %>
+<% end %>
