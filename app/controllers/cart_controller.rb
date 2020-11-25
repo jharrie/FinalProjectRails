@@ -14,13 +14,16 @@ class CartController < ApplicationController
 
     product = Product.find(id)
     flash[:notice] = "#{product.name} added to cart "
-
     redirect_to products_url
   end
 
   def destroy
     id = params[:id].to_i
     session[:shopping_cart].delete(id)
+
+    session[:cart_quantity] = session[:cart_quantity].map do |cart_item|
+      cart_item["id"] == id ? { "id" => id, "quantity" => 0 } : cart_item
+    end
 
     product = Product.find(id)
     flash[:notice] = "#{product.name} removed from cart "
