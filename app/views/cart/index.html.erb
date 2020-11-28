@@ -3,7 +3,7 @@
 
 <h1>Cart</h1>
 
-<%= current_user['id'] %>
+<p>user id: </p><%= current_user['id'] %> </p>
 <% user_province = Province.find_by id: current_user.province_id %>
 
 <% session[:shopping_cart].each do |item| %>
@@ -13,3 +13,7 @@
     <% cart_item['id'].to_i == item.to_i ? item_quantity = cart_item['quantity'].to_i : cart_item %>
   <% end %>
 <% end %>
+
+
+<%= debug session['shopping_cart'] %>
+<%= debug session['cart_quantity'] %>
