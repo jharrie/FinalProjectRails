@@ -1,21 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= link_to render @category %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
-
-<% @category.products.each do |product| %>
-    <p>
+<%= render @category %>
+      <div class="card">
+        <p class="title">
+          <% @category.products.each do |product| %>
+        <p>
         <strong>Product:</strong>
         <%= product.name %>
-    </p>
-<% end %>
-
+        </p>
+      </p>
+  <% end %>
+</div>
 
 <%= link_to 'Back', categories_path %>

@@ -53,21 +53,20 @@
                 <%= link_to "About", abouts_url, class: "navbar-item" %>
             </div>
 
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="field">
-                        <div class="control">
-                            <%= link_to image_tag("cart.png", width: 40), products_url %>
-                            <% if cart.present? %>
-                                <sup><%= cart.size %></sup>
-                                    <% cart.each do |product| %>
-                                        <li><%= product.price_cents %> <%= link_to '❌', cart_path(product), method: :delete %></li>
-                                    <% end %>
-                            <% end %>
+            <% if cart.present? %>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="field">
+                            <div class="control">
+                                <%= link_to image_tag("cart.png", width: 40), products_url %>
+                                <% if cart.present? %>
+                                    <sup><%= cart.size %></sup>
+                                <% end %>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <%end%>
         </div>
     </nav>
     <section class="section">

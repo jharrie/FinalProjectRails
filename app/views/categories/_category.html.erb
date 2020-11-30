@@ -1,1 +1,8 @@
-<p><%= category.name %></p>
+      <div class="card">
+        <p class="title">
+          <%= link_to category.name, category %>
+        </p>
+          <p class="subtitle">
+            Description: <%= category.description %>
+          </p>
+      </div>

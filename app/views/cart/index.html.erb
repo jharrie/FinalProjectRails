@@ -1,19 +1,68 @@
-<p id="notice"><%= notice %></p>
 <% product_list = Product.all %>
 
-<h1>Cart</h1>
-
-<p>user id: </p><%= current_user['id'] %> </p>
-<% user_province = Province.find_by id: current_user.province_id %>
-
-<% session[:shopping_cart].each do |item| %>
-  <% current_product = product_list.find_by id: item %>
-  <% product_quantity = 0 %>
-  <% session[:cart_quantity].map do |cart_item| %>
-    <% cart_item['id'].to_i == item.to_i ? item_quantity = cart_item['quantity'].to_i : cart_item %>
+<div class="card">
+  <% if current_user.present? %>
+    <% sub_total = 0 %>
+    <% total_taxes = 0 %>
+    <p class="title">
+      Name:<%= current_user['first_name'] %>
+    </p>
+    <% user_province = Province.find_by id: current_user.province_id %>
+    <footer class="card-footer">
+        <% if user_province.hst.present? %>
+          <% hst = user_province.hst %>
+          <% total_taxes = hst.to_f %>
+        <p class="card-footer-item">hst: <%= hst %></p>
+        <% else %>
+          <% pst = user_province.pst %>
+          <% gst = user_province.gst %>
+          <% total_taxes = gst.to_f + pst.to_f %>
+        <p class="card-footer-item">pst:  <%= pst %> </p>
+        <p class="card-footer-item">gst: <%= gst %> </p>
+        <% end %>
+      </p>
+    </footer>
   <% end %>
-<% end %>
+</div>
 
+<div class="card">
+  <% session[:shopping_cart].each do |item| %>
+    <% current_product = product_list.find_by id: item %>
+    <% product_quantity = 0 %>
+    <% session[:cart_quantity].map do |cart_item| %>
+      <% cart_item['id'].to_i == item.to_i ? product_quantity = cart_item['quantity'].to_i : cart_item %>
+    <% end %>
+    <p class="title">
+      Name:  <%= current_product.name %>
+    </p>
+    <p class="subtitle">
+      Item quantity: <%= product_quantity %>
+    </p>
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        Discount: <%= current_product.discount_amount.truncate(0) %>%
+      </p>
+      <p class="card-footer-item">
+        Sub Total: <%= (current_product.price_cents * product_quantity) - (current_product.discount_amount / 100 * current_product.price_cents) %>
+      </p>
+      <% sub_total += (current_product.price_cents * product_quantity) - (current_product.discount_amount / 100 * current_product.price_cents) %>
+    </footer>
+  <% end %>
+</div>
 
-<%= debug session['shopping_cart'] %>
-<%= debug session['cart_quantity'] %>
+<div class="card">
+  <p class="title">
+    Grand Total
+    <% grand_total = ((sub_total) * (total_taxes / 100)) + (sub_total) %>
+  </p>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      Subtotal: <%= sub_total.truncate(2) %>
+    </p>
+    <p class="card-footer-item">
+      Grand Total: <%= grand_total.truncate(2) %>
+    </p>
+  </footer>
+</div>
+<%# <%= debug session['shopping_cart'] %>
+<%# <%= debug session['cart_quantity'] %>

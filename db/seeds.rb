@@ -26,12 +26,13 @@ end
 
 NUMBER_OF_PRODUCTS.times do
   Product.create(
-    name:        Faker::Color.color_name,
-    price_cents: rand(10..100),
-    discount:    Faker::Boolean.boolean,
-    description: Faker::Hipster.sentence(word_count: rand(4..10)),
-    category_id: rand(1...5),
-    stock:       rand(0..40)
+    name:            Faker::Color.color_name,
+    price_cents:     rand(10..100),
+    discount:        Faker::Boolean.boolean,
+    discount_amount: rand(1..10),
+    description:     Faker::Hipster.sentence(word_count: rand(4..10)),
+    category_id:     rand(1...5),
+    stock:           rand(0..40)
   )
 
   # query = URI.encode_www_form_component(product.name)

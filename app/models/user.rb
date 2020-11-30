@@ -7,6 +7,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :address, :city, :postal, :province_id, presence: true
 
   has_one :staff
-  has_one :cart
-  has_one :province
+  has_many :carts
+  belongs_to :province
 end
